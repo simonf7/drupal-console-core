@@ -66,7 +66,7 @@ class ShowTipsListener implements EventSubscriberInterface
     {
         $get_tip = $this->translator
             ->trans('commands.'.str_replace(':', '.', $commandName).'.tips.0.tip');
-        preg_match("/^commands./", $get_tip, $matches, null, 0);
+        preg_match("/^commands./", $get_tip, $matches, 0, 0);
         if (!empty($matches)) {
             return false;
         }
@@ -74,7 +74,7 @@ class ShowTipsListener implements EventSubscriberInterface
         $n = rand(0, 5);
         $get_tip = $this->translator
             ->trans('commands.'.str_replace(':', '.', $commandName).'.tips.' . $n . '.tip');
-        preg_match("/^commands./", $get_tip, $matches, null, 0);
+        preg_match("/^commands./", $get_tip, $matches, 0, 0);
 
         if (empty($matches)) {
             return $get_tip;

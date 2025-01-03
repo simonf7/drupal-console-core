@@ -366,9 +366,9 @@ class TextDescriptor extends Descriptor
         $totalWidth = 0;
         foreach ($options as $option) {
             // "-" + shortcut + ", --" + name
-            $nameLength = 1 + max(strlen($option->getShortcut()), 1) + 4 + strlen($option->getName());
+            $nameLength = 1 + max(strlen($option->getShortcut() ?? ''), 1) + 4 + strlen($option->getName() ?? '');
             if ($option->acceptValue()) {
-                $valueLength = 1 + strlen($option->getName()); // = + value
+                $valueLength = 1 + strlen($option->getName() ?? ''); // = + value
                 $valueLength += $option->isValueOptional() ? 2 : 0; // [ + ]
                 $nameLength += $valueLength;
             }
